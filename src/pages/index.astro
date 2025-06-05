@@ -1,11 +1,32 @@
 ---
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
+import Navbar from '../components/navbar.astro';
+import Hero from '../components/hero.astro';
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+	<!--<Hero />-->
+	<section class="flex flex-col items-center justify-center min-h-[80vh]">
+  		<h1 class="text-white text-6xl md:text-7xl font-bold mb-4 text-center">
+    		The Barber Domi
+  		</h1>
+  		<p class="text-white text-2xl md:text-3xl mb-8 text-center">
+    		La mejor barberia de Sabadell.
+  		</p>
+  		<a href="#" class="px-8 py-4 rounded-xl bg-red-600 text-white font-medium text-lg hover:bg-red-700 transition mb-16">
+    		Reserva tu cita ahora
+  		</a>
+  		<span class="text-white text-3xl animate-bounce">&#8595;</span>
+	</section>
+
+	<section class="bg-gray-800 py-16">
+		<h2 class="text-white text-4xl md:text-5xl font-bold mb-4 text-center">Nuestros Servicios</h2>
+		<p class="text-white text-lg md:text-xl mb-8 text-center">Ofrecemos una amplia gama de servicios de barbería para satisfacer tus necesidades.</p>
+	</section>
+
+
+
 </Layout>
