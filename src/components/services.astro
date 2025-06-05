@@ -1,0 +1,43 @@
+---
+import ServicesItem from './servicesItem.astro';
+const SERVICES = [
+    {
+        title: 'Corte de pelo',
+        description:
+            'Corte de pelo clásico con tijera y máquina. Incluye lavado y styling.',
+        link: '#',
+        price: '13€',
+        time: '30 min',
+    },
+
+    {
+        title: 'Combo Barba + Corte de pelo',
+        description:
+            'Corte de pelo con tijera y máquina que incluye un arreglo de barba completo.',
+        link: '#',
+        price: '19€',
+        time: '40 min',
+    },
+
+    {
+        title: 'Cejas con navaja',
+        description:
+            'Arreglo de cejas con navaja para un acabado limpio y definido.',
+        link: '#',
+        price: '3€',
+        time: '5 min',
+    },
+
+]
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+    {
+        SERVICES.map(service => (
+            <li class="mb-10 ms-6">
+                <ServicesItem {...service} />
+            </li>
+        ))
+    }                  
+    
+</ol>

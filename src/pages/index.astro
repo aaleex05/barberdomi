@@ -3,6 +3,7 @@ import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/navbar.astro';
 import Hero from '../components/hero.astro';
+import Services from '../components/services.astro';
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -25,8 +26,9 @@ import Hero from '../components/hero.astro';
 	<section class="bg-gray-800 py-16">
 		<h2 class="text-white text-4xl md:text-5xl font-bold mb-4 text-center">Nuestros Servicios</h2>
 		<p class="text-white text-lg md:text-xl mb-8 text-center">Ofrecemos una amplia gama de servicios de barbería para satisfacer tus necesidades.</p>
+		<div class="max-w-4xl mx-auto flex flex-col items-center gap-8 px-4">
+			<Services />
+		</div>
 	</section>
-
-
 
 </Layout>
