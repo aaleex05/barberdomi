@@ -6,23 +6,23 @@ import Icon from './Icon.astro';
 <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
-      <div class="flex items-center space-x-2 animate-slide-in-left">
+      <a href="/#" class="flex items-center space-x-2 animate-slide-in-left transition-colors hover:scale-105 transform">
         <Icon name="scissors" class="h-6 w-6 text-red-700" />
-        <span class="font-bold text-xl text-red-700">The Barber Domi</span>
-      </div>
+        <span class="font-bold text-xl text-red-700 hover:text-red-400">The Barber Domi</span>
+      </a>
 
       <!-- Desktop Menu -->
       <div class="hidden md:flex items-center space-x-8 animate-slide-in-right">
-        <a href="/#servicios" class="text-red-700 hover:text-red-900 transition-colors hover:scale-105 transform">
+        <a href="/#servicios" class="text-red-700 hover:text-red-400 transition-colors hover:scale-105 transform">
           Servicios
         </a>
-        <a href="/#local" class="text-red-700 hover:text-red-900 transition-colors hover:scale-105 transform">
+        <a href="/#local" class="text-red-700 hover:text-red-400 transition-colors hover:scale-105 transform">
           Nuestro Local
         </a>
-        <a href="/#galeria" class="text-red-700 hover:text-red-900 transition-colors hover:scale-105 transform">
+        <a href="/#galeria" class="text-red-700 hover:text-red-400 transition-colors hover:scale-105 transform">
           Galería
         </a>
-        <a href="/#contacto" class="text-red-700 hover:text-red-900 transition-colors hover:scale-105 transform">
+        <a href="/#contacto" class="text-red-700 hover:text-red-400 transition-colors hover:scale-105 transform">
           Contacto
         </a>
         <Button class="hover:scale-105 transform transition-all">Reservar Cita</Button>
