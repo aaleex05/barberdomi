@@ -1,0 +1,49 @@
+---
+import Badge from './Badge.astro';
+import Button from './Button.astro';
+import Icon from './Icon.astro';
+
+const galleryImages = [
+  { src: "/placeholder.svg?height=400&width=400", alt: "Corte clásico profesional", category: "Cortes" },
+  { src: "/placeholder.svg?height=400&width=400", alt: "Afeitado tradicional", category: "Afeitado" },
+  { src: "/placeholder.svg?height=400&width=400", alt: "Arreglo de barba", category: "Barba" },
+  { src: "/placeholder.svg?height=400&width=400", alt: "Interior del local", category: "Local" },
+  { src: "/placeholder.svg?height=400&width=400", alt: "Corte moderno", category: "Cortes" },
+  { src: "/placeholder.svg?height=400&width=400", alt: "Productos premium", category: "Productos" },
+];
+---
+
+<section id="galeria" class="py-20 bg-red-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 animate-fade-in">
+      <h2 class="text-4xl font-bold text-red-900 mb-4">Nuestra Galería</h2>
+      <p class="text-xl text-red-700 max-w-2xl mx-auto">
+        Descubre nuestros trabajos y el ambiente único de The Barber Domi
+      </p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {galleryImages.map((image, index) => (
+        <div class={`group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-in hover:scale-105 transform`} style={`animation-delay: ${index * 0.1}s;`}>
+          <img
+            src={image.src || "/placeholder.svg"}
+            alt={image.alt}
+            class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="absolute bottom-4 left-4 text-white">
+              <Badge class="mb-2 bg-red-600 text-white">{image.category}</Badge>
+              <p class="font-semibold">{image.alt}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-12 animate-fade-in">
+      <Button href='https://www.instagram.com/thebarberdomi/' size="lg" class="hover:scale-105 transform transition-all">
+        <Icon name="instagram" class="h-5 w-5 mr-2" />
+        Ver más en Instagram
+      </Button>
+    </div>
+  </div>
+</section>

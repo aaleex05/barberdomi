@@ -1,12 +1,86 @@
-<section class="flex flex-col items-center justify-center min-h-[80vh]">
-  <h1 class="text-white text-6xl md:text-7xl font-bold mb-4 text-center">
-    The Barber Domi
-  </h1>
-  <p class="text-white text-2xl md:text-3xl mb-8 text-center">
-    La mejor barberia de Sabadell.
-  </p>
-  <a href="#" class="px-8 py-4 rounded-xl bg-red-600 text-white font-medium text-lg hover:bg-red-700 transition mb-16">
-    Reserva tu cita ahora
-  </a>
-  <span class="text-white text-3xl animate-bounce">&#8595;</span>
+---
+import Button from './Button.astro';
+import Badge from './Badge.astro';
+import Icon from './Icon.astro';
+---
+
+<section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-red-900 via-red-800 to-red-700 overflow-hidden">
+  <div class="absolute inset-0 bg-black/30"></div>
+  
+  <!-- Floating Elements -->
+  <div class="absolute top-20 left-10 animate-float opacity-20">
+    <Icon name="scissors" class="h-16 w-16 text-white" />
+  </div>
+  <div class="absolute top-40 right-20 animate-float opacity-20" style="animation-delay: 1s;">
+    <Icon name="razor" class="h-12 w-12 text-white" />
+  </div>
+  <div class="absolute bottom-40 left-20 animate-float opacity-20" style="animation-delay: 2s;">
+    <Icon name="razor2" class="h-14 w-14 text-white" />
+  </div>
+  <div class="absolute bottom-90 right-60 animate-float opacity-20" style="animation-delay: 2s;">
+    <Icon name="star" class="h-14 w-14 text-white" />
+  </div>
+
+  <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-20">
+    <div class="animate-fade-in">
+      <Badge variant="outline" class="mb-6 border-white/30 text-white bg-white/10 backdrop-blur-sm animate-scale-in">
+        <Icon name="award" class="h-4 w-4 mr-2" />
+        Barbería Profesional • Sabadell • Desde 2023
+      </Badge>
+    </div>
+    
+    <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight animate-slide-up">
+      <span class="block">THE BARBER</span>
+      <span class="block text-red-200 text-5xl md:text-7xl">DOMI</span>
+    </h1>
+    
+    <div class="animate-slide-up" style="animation-delay: 0.3s;">
+      <p class="text-2xl md:text-3xl text-red-100 mb-4 font-light">
+        Maestros en el Arte del Corte
+      </p>
+      <p class="text-lg md:text-xl text-red-200 mb-8 max-w-3xl mx-auto leading-relaxed">
+        Tradición, precisión y estilo en cada servicio. Descubre la experiencia de una barbería auténtica 
+        donde cada detalle cuenta y cada cliente es único.
+      </p>
+    </div>
+
+    <!-- Professional Features -->
+    <div class="grid md:grid-cols-3 gap-6 mb-10 animate-slide-up" style="animation-delay: 0.6s;">
+      <div class="flex flex-col items-center text-center">
+        <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-3 backdrop-blur-sm">
+          <Icon name="scissors" class="h-8 w-8 text-white" />
+        </div>
+        <h3 class="font-semibold text-white mb-1">Cortes Profesionales</h3>
+        <p class="text-red-200 text-sm">Técnicas tradicionales y modernas</p>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-3 backdrop-blur-sm">
+          <Icon name="razor" class="h-8 w-8 text-white" />
+        </div>
+        <h3 class="font-semibold text-white mb-1">Afeitado Clásico</h3>
+        <p class="text-red-200 text-sm">Con navaja y productos premium</p>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-3 backdrop-blur-sm">
+          <Icon name="mustache" class="h-8 w-8 text-white" />
+        </div>
+        <h3 class="font-semibold text-white mb-1">Cuidado de Barba</h3>
+        <p class="text-red-200 text-sm">Diseño y mantenimiento experto</p>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style="animation-delay: 0.9s;">
+      <Button href='https://booksy.com/es-es/66211_the-barber-domi_barberia_49363_sabadell#ba_s=seo' size="lg" class="bg-red text-red-900 hover:bg-red-50 px-8 py-4 text-lg hover:scale-105 transform transition-all">
+        <Icon name="calendario" class="h-5 w-5 mr-2" />
+        Reservar Cita Ahora
+      </Button>
+      <a
+        class='inline-flex items-center justify-center rounded-md font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer border-1 border-white text-white hover:bg-white hover:scale-105 hover:text-red-900 h-11 px-8 text-lg hover:shadow-lg mb-5'
+        href='/#servicios'
+      >
+        <Icon name="scissors" class="h-5 w-5 mr-2" />
+        Ver Servicios
+      </a>
+    </div>
+  </div>
 </section>
