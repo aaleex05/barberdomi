@@ -1,11 +1,13 @@
 ---
+import "../styles/global.css";
+
 export interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = "The Barber Domi - La mejor barbería de Sabadell" } = Astro.props;
-import "../styles/global.css";
+const { title = "The Barber Domi - La mejor barbería de Sabadell" } = Astro.props;
+const { description = "La Barber Domi es la barbería más destacada de Sabadell, especializada en cortes de pelo, afeitados y cuidados masculinos. Ofrecemos un ambiente acogedor y profesional para que cada visita sea una experiencia única." } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -14,8 +16,38 @@ import "../styles/global.css";
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="The Barber Domi" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`https://thebarberdomi.vercel.app${Astro.url.pathname}`}/>
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/og-image.jpg" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+
+    // SEO and Analytics
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Barbershop",
+        "name": "The Barber Domi",
+        "image": "https://thebarberdomi.vercel.app/og-image.jpg",
+        "url": "https://thebarberdomi.vercel.app",
+        "telephone": "+34 631 04 22 25",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Sabadell",
+          "addressCountry": "ES"
+        },
+        "description": "La Barber Domi es la barbería más destacada de Sabadell, especializada en cortes de pelo, afeitados y cuidados masculinos."
+      }
+    </script>    
+
   </head>
   <body>
     <slot />
