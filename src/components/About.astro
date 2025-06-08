@@ -1,6 +1,7 @@
 ---
 import Badge from './Badge.astro';
 import Icon from './Icon.astro';
+import aboutImg from '../assets/about.webp';
 ---
 
 <section id="local" class="py-20 bg-white">
@@ -33,7 +34,7 @@ import Icon from './Icon.astro';
       <div class="relative animate-slide-in-right">
         <div class="aspect-square bg-red-100 rounded-2xl overflow-hidden hover:scale-105 transform transition-all duration-500">
           <img
-            src="/src/assets/barberia.webp"
+            src={aboutImg.src}
             alt="Interior de The Barber Domi"
             width="500"
             height="500"
