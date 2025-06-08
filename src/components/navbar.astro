@@ -3,7 +3,7 @@ import Button from './Button.astro';
 import Icon from './Icon.astro';
 ---
 
-<nav id="navbar" class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] max-w-5xl z-50 rounded-2xl bg-white/5 backdrop-blur-md shadow-lg transition-all duration-300">
+<nav id="navbar" class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] max-w-5xl z-50 rounded-2xl bg-transparent backdrop-blur-none shadow-none transition-all duration-300">
   <div class="px-7 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <a href="/#" class="flex items-center space-x-2 animate-slide-in-left transition-colors hover:scale-105 transform">
@@ -55,28 +55,16 @@ import Icon from './Icon.astro';
 
   mobileMenuBtn?.addEventListener('click', () => {
     mobileMenu?.classList.toggle('hidden');
-    
-    // Toggle icon between menu and X
-    const currentIcon = mobileMenuBtn.querySelector('svg');
-    if (mobileMenu?.classList.contains('hidden')) {
-      // Show menu icon
-      if (currentIcon) {
-        currentIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
-      }
-    } else {
-      // Show X icon
-      if (currentIcon) {
-        currentIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
-      }
-    }
   });
 
   // Navbar scroll effect
   window.addEventListener('scroll', () => {
     if (window.scrollY > 10) {
-      navbar?.classList.add('bg-white/20', 'shadow-md');
+      navbar?.classList.add('bg-white/10', 'backdrop-blur-md', 'shadow-md');
+      navbar?.classList.remove('bg-transparent', 'backdrop-blur-none', 'shadow-none');
     } else {
-      navbar?.classList.remove('bg-white/20', 'shadow-md');
+      navbar?.classList.add('bg-transparent', 'backdrop-blur-none', 'shadow-none');
+      navbar?.classList.remove('bg-white/10', 'backdrop-blur-md', 'shadow-md');
     }
   });
 </script>
