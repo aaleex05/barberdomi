@@ -3,3 +3,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 4rem;
 }
+
+.stroke-black {
+  -webkit-text-stroke: 0.5px white;
+}
