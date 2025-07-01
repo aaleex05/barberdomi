@@ -2,14 +2,20 @@
 import Badge from './Badge.astro';
 import Button from './Button.astro';
 import Icon from './Icon.astro';
+import corte1 from '../assets/corte1.webp';
+import corte2 from '../assets/corte2.webp';
+import localExterior from '../assets/local fuera.jpeg';
+import local from '../assets/about.webp';
+import corteModerno from '../assets/corte4.webp';
+import corteModerno2 from '../assets/corte3.webp';
 
 const galleryImages = [
-  { src: "/placeholder.svg?height=400&width=400", alt: "Corte clásico profesional", category: "Cortes" },
-  { src: "/placeholder.svg?height=400&width=400", alt: "Afeitado tradicional", category: "Afeitado" },
-  { src: "/placeholder.svg?height=400&width=400", alt: "Arreglo de barba", category: "Barba" },
-  { src: "/placeholder.svg?height=400&width=400", alt: "Interior del local", category: "Local" },
-  { src: "/placeholder.svg?height=400&width=400", alt: "Corte moderno", category: "Cortes" },
-  { src: "/placeholder.svg?height=400&width=400", alt: "Productos premium", category: "Productos" },
+  { src: corte1.src, alt: "Corte con degradado y línea marcada", category: "Cortes" },
+  { src: corte2.src, alt: "Degradado con diseño", category: "Cortes" },
+  { src: corteModerno2.src, alt: "Corte con diseño artístico", category: "Cortes" },
+  { src: corteModerno.src, alt: "Corte juvenil degradado", category: "Cortes" },
+  { src: local.src, alt: "Interior del local", category: "Local" },
+  { src: localExterior.src, alt: "Exterior del local", category: "Local" },
 ];
 ---
 
