@@ -1,0 +1,47 @@
+---
+const reviews = [
+  {
+    name: "Oliver Manzano Martín",
+    avatar: "O",
+    stars: 5,
+    date: "Hace 2 semanas",
+    text: "Me han atendido muy bien. El corte de pelo ha quedado genial y a mi gusto. Buen trato y puntuales. Les recomiendo ir.",
+  },
+  {
+    name: "angel olivares",
+    avatar: "a",
+    stars: 5,
+    date: "Hace 1 mes",
+    text: "Fui a cortarme el pelo y la experiencia fue excelente. Fernando, el barbero, hizo un gran trabajo, muy profesional y atento en todo momento. Me gustó mucho el resultado y sin duda volveré la próxima vez. ¡Muy recomendable!",
+  },
+  {
+    name: "amanda lopez",
+    avatar: "a",
+    stars: 5,
+    date: "Hace 1 mes",
+    text: "Corte genial y super bien hecho. Muy recomendable. Nuestra nueva barbería de ahora en adelante",
+  },
+];
+---
+<div class="w-full flex flex-col items-center justify-center py-10 bg-neutral-900">
+  <h2 class="text-2xl md:text-3xl font-bold text-white mb-8 text-center">La opinión de nuestros clientes</h2>
+  <div class="w-full max-w-5xl">
+    <div class="flex flex-col md:flex-row gap-6 justify-center items-stretch">
+      {reviews.slice(0, 3).map((review) => (
+        <div class="bg-neutral-800 rounded-xl p-6 shadow-lg text-white flex flex-col gap-2 min-h-[180px] w-full md:w-80 transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-neutral-700 flex items-center justify-center font-bold text-lg">{review.avatar}</div>
+            <div>
+              <div class="font-semibold">{review.name}</div>
+              <div class="text-xs text-yellow-400">
+                {"★".repeat(review.stars)}
+                <span class="ml-2 text-neutral-400">{review.date}</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-2 text-sm">{review.text}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
