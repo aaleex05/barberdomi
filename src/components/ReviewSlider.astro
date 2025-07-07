@@ -1,47 +1,121 @@
 ---
-const reviews = [
+import Button from "./Button.astro";
+import Icon from "./Icon.astro";
+
+const resenas = [
   {
-    name: "Oliver Manzano Martín",
-    avatar: "OM",
-    stars: 5,
-    date: "Hace 2 semanas",
-    text: "Me han atendido muy bien. El corte de pelo ha quedado genial y a mi gusto. Buen trato y puntuales. Les recomiendo ir.",
+    nombre: "Angel Olivares",
+    calificacion: 5,
+    comentario: "Fui a cortarme el pelo y la experiencia fue excelente. Fernando, el barbero, hizo un gran trabajo, muy profesional y atento en todo momento. Me gustó mucho el resultado y sin duda volveré la próxima vez. ¡Muy recomendable!",
+    fecha: "Hace 1 mes",
+    servicio: "Corte con degradado"
   },
   {
-    name: "Angel Olivares",
-    avatar: "AO",
-    stars: 5,
-    date: "Hace 1 mes",
-    text: "Fui a cortarme el pelo y la experiencia fue excelente. Fernando, el barbero, hizo un gran trabajo, muy profesional y atento en todo momento. Me gustó mucho el resultado y sin duda volveré la próxima vez. ¡Muy recomendable!",
+    nombre: "Amanda Lopez",
+    calificacion: 5,
+    comentario: "Corte genial y super bien hecho. Muy recomendable. Nuestra nueva barbería de ahora en adelante",
+    fecha: "Hace 1 mes",
+    servicio: "Corte con tijeras + Mantenimiento de barba"
   },
   {
-    name: "Amanda Lopez",
-    avatar: "AL",
-    stars: 5,
-    date: "Hace 1 mes",
-    text: "Corte genial y super bien hecho. Muy recomendable. Nuestra nueva barbería de ahora en adelante",
+    nombre: "Antonio García",
+    calificacion: 5,
+    comentario: "Muy contento con mi corte de cabello",
+    fecha: "Hace 4 semanas",
+    servicio: "Corte personalizado"
   },
+  {
+    nombre: "Gilberto Bodu",
+    calificacion: 5,
+    comentario: "Muy buen servicio y muy buen corte de pelo, muy amables los peluqueros sobretodo Daniel, muchas graciass volveré",
+    fecha: "Hace un dia",
+    servicio: "Corte degradado"
+  },
+  {
+    nombre: "Pol Guillén",
+    calificacion: 5,
+    comentario: "Muy profesionales, se nota que son buenos y tienen experiencia cortando pelo, local nuevo hermoso y muy bien equipado (aunque queda una zona a medio reformar). También tiene un buen precio comparándolo con otras barberías/peluquerías de calidad similar.",
+    fecha: "Hace 1 mes",
+    servicio: "Corte degradado"
+  },
+  {
+    nombre: "Jarvis Encarnacion",
+    calificacion: 5,
+    comentario: "Muy bien servicio muy profesional",
+    fecha: "Hace un mes",
+    servicio: "Corte clásico"
+  }
 ];
+
+function generarEstrellas(calificacion) {
+  return Array.from({length: 5}, (_, i) => i < calificacion);
+}
 ---
-<div class="w-full flex flex-col items-center justify-center py-15 bg-neutral-900">
-  <h2 class="text-2xl md:text-3xl font-bold text-white mb-8 text-center">La opinión de nuestros clientes</h2>
-  <div class="w-full max-w-5xl">
-    <div class="flex flex-col md:flex-row gap-6 justify-center items-stretch">
-      {reviews.slice(0, 3).map((review) => (
-        <div class="bg-neutral-800 rounded-xl p-6 shadow-lg text-white flex flex-col gap-2 min-h-[180px] w-full md:w-80 transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-neutral-700 flex items-center justify-center font-bold text-lg">{review.avatar}</div>
-            <div>
-              <div class="font-semibold">{review.name}</div>
-              <div class="text-xs text-yellow-400">
-                {"★".repeat(review.stars)}
-                <span class="ml-2 text-neutral-400">{review.date}</span>
+
+<section class="w-full py-16 md:py-24 lg:py-32">
+  <div class="container px-4 md:px-6 mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-sm font-semibold text-red-700 uppercase tracking-wider mb-4">Testimonios</h2>
+      <h3 class="text-4xl md:text-5xl font-bold text-black mb-6">
+        Lo que dicen nuestros <span class="text-red-700">clientes</span>
+      </h3>
+      <p class="text-lg text-red-700 max-w-2xl mx-auto">
+        La satisfacción de nuestros clientes es nuestro mayor orgullo. Descubre por qué confían en nosotros para su cuidado personal.
+      </p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {resenas.map((resena, index) => (
+        <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border border-slate-100">
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-red-800 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                {resena.nombre.split(' ').map(n => n[0]).join('')}
+              </div>
+              <div>
+                <h4 class="font-semibold text-slate-900">{resena.nombre}</h4>
+                <p class="text-sm text-slate-500">{resena.fecha}</p>
               </div>
             </div>
           </div>
-          <div class="mt-2 text-sm">{review.text}</div>
+
+          <div class="flex items-center mb-4">
+            {generarEstrellas(resena.calificacion).map((filled, i) => (
+              <svg 
+                class={`w-5 h-5 ${filled ? 'text-amber-400' : 'text-slate-300'}`}
+                fill="currentColor" 
+                viewBox="0 0 20 20"
+              >
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            ))}
+            <span class="ml-2 text-sm font-medium text-slate-600">({resena.calificacion}.0)</span>
+          </div>
+
+          <div class="text-slate-700 mb-4 leading-relaxed">
+            "{resena.comentario}"
+          </div>
+
+          <div class="pt-4 border-t border-slate-100">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+              {resena.servicio}
+            </span>
+          </div>
         </div>
       ))}
     </div>
+
+
+    <div class="text-center mt-12">
+      <div class="flex items-center justify-center space-x-4 mb-6">
+        <div class="h-px bg-red-600 flex-1 max-w-24"></div>
+        <span class="text-red-600 font-medium">¿Listo para tu próximo corte?</span>
+        <div class="h-px bg-red-600 flex-1 max-w-24"></div>
+      </div>
+      <Button href='https://booksy.com/es-es/66211_the-barber-domi_barberia_49363_sabadell#ba_s=seo' size="lg" class="bg-red text-red-900 hover:bg-red-50 px-8 py-4 text-lg hover:scale-105 transform transition-all">
+        <Icon name="calendario" class="h-5 w-5 mr-2" />
+        Reservar Cita Ahora
+      </Button>
+    </div>
   </div>
-</div>
+</section>

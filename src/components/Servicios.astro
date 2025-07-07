@@ -1,7 +1,7 @@
 ---
-import Card from './Card.astro';
-import Button from './Button.astro';
-import Icon from './Icon.astro';
+import Card from "./Card.astro";
+import Button from "./Button.astro";
+import Icon from "./Icon.astro";
 
 const services = [
   { name: "Corte", price: "13€", duration: "35 min" },
@@ -11,39 +11,60 @@ const services = [
 ];
 ---
 
-<section id="servicios" class="py-20">
+<section id="servicios" class="pb-30 ">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16 animate-fade-in">
       <h2 class="text-4xl font-bold text-red-900 mb-4">Nuestros Servicios</h2>
       <p class="text-xl text-red-700 max-w-2xl mx-auto">
-        Servicios profesionales con atención al detalle y productos de primera calidad
+        Servicios profesionales con atención al detalle y productos de primera
+        calidad
       </p>
     </div>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {services.map((service, index) => (
-        <Card class={`group hover:shadow-lg transition-all duration-300 border-red-100 hover:scale-105 transform animate-slide-up animate-delay-${index}`}>
-          <div class="p-6 text-center">
-            <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-900 transition-colors group-hover:scale-110 transform">
-              <Icon name="scissors" class="h-8 w-8 text-red-600 group-hover:text-white transition-colors" />
+      {
+        services.map((service, index) => (
+          <Card
+            class={`group hover:shadow-lg transition-all duration-300 border-red-100 hover:scale-105 transform animate-slide-up animate-delay-${index}`}
+          >
+            <div class="p-6 text-center">
+              <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-900 transition-colors group-hover:scale-110 transform">
+                <Icon
+                  name="scissors"
+                  class="h-8 w-8 text-red-600 group-hover:text-white transition-colors"
+                />
+              </div>
+              <h3 class="font-semibold text-lg text-red-900 mb-2">
+                {service.name}
+              </h3>
+              <div class="flex justify-between items-center text-sm text-red-600 mb-4">
+                <span class="flex items-center">
+                  <Icon name="clock" class="h-4 w-4 mr-1" />
+                  {service.duration}
+                </span>
+                <span class="font-bold text-red-900 text-lg">
+                  {service.price}
+                </span>
+              </div>
+              <Button
+                href="https://booksy.com/es-es/66211_the-barber-domi_barberia_49363_sabadell#ba_s=seo"
+                variant="outline"
+                size="sm"
+                class="w-full hover:scale-105 transform transition-all"
+              >
+                Reservar
+              </Button>
             </div>
-            <h3 class="font-semibold text-lg text-red-900 mb-2">{service.name}</h3>
-            <div class="flex justify-between items-center text-sm text-red-600 mb-4">
-              <span class="flex items-center">
-                <Icon name="clock" class="h-4 w-4 mr-1" />
-                {service.duration}
-              </span>
-              <span class="font-bold text-red-900 text-lg">{service.price}</span>
-            </div>
-            <Button href='https://booksy.com/es-es/66211_the-barber-domi_barberia_49363_sabadell#ba_s=seo' variant="outline" size="sm" class="w-full hover:scale-105 transform transition-all">
-              Reservar
-            </Button>
-          </div>
-        </Card>
-      ))}
+          </Card>
+        ))
+      }
     </div>
   </div>
   <div class="flex items-center justify-center pt-5">
-    <Button href='https://booksy.com/es-es/66211_the-barber-domi_barberia_49363_sabadell#ba_s=seo' size="lg">Más Servicos</Button>
+    <Button
+      href="https://booksy.com/es-es/66211_the-barber-domi_barberia_49363_sabadell#ba_s=seo"
+      class="hover:scale-105 transform transition-all"
+      size="lg">Más Servicos</Button
+    >
   </div>
 </section>
