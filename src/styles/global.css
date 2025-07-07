@@ -5,5 +5,5 @@ html {
 }
 
 .stroke-white {
-  -webkit-text-stroke: 1px white;
+  -webkit-text-stroke: 3px white;
 }

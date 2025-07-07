@@ -29,9 +29,17 @@ import Icon from './Icon.astro';
       </Badge>
     </div>
     
-    <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight animate-slide-up pb-3">
-      <span class="block text-red-600 bg-clip-text stroke-white">THE BARBER DOMI</span>
-    </h1>
+   <h1 class="relative text-6xl md:text-8xl font-bold mb-6 tracking-tight animate-slide-up pb-4 inline-block leading-none">
+  <!-- Capa de trazo -->
+  <span class="absolute inset-0 text-red-600 stroke-white text-transparent pointer-events-none select-none">
+    THE BARBER DOMI
+  </span>
+  
+  <!-- Capa principal con degradado o color -->
+  <span class="relative block bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
+    THE BARBER DOMI
+  </span>
+</h1>
     <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style="animation-delay: 0.9s;">
       <Button href='https://booksy.com/es-es/66211_the-barber-domi_barberia_49363_sabadell#ba_s=seo' size="lg" class="bg-red text-red-900 hover:bg-red-50 px-8 py-4 text-lg hover:scale-105 transform transition-all">
         <Icon name="calendario" class="h-5 w-5 mr-2" />
