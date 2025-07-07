@@ -4,6 +4,6 @@ html {
   scroll-padding-top: 4rem;
 }
 
-.stroke-black {
-  -webkit-text-stroke: 0.5px white;
+.stroke-white {
+  -webkit-text-stroke: 1px white;
 }
