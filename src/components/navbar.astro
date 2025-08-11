@@ -1,6 +1,14 @@
 ---
 import Button from './Button.astro';
 import Icon from './Icon.astro';
+
+const itemsnavbar = [
+  { href: '/#sobre-nosotros', label: 'Sobre Nosotros' },
+  { href: '/#servicios', label: 'Servicios' },
+  { href: '/#opiniones', label: 'Opiniones' },
+  { href: '/#galeria', label: 'Galería' },
+  { href: '/#contacto', label: 'Contacto' },
+];
 ---
 
 <nav id="navbar" class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] max-w-5xl z-50 rounded-2xl bg-transparent backdrop-blur-none shadow-none transition-all duration-300">
@@ -13,18 +21,11 @@ import Icon from './Icon.astro';
 
       <!-- Desktop Menu -->
       <div class="hidden md:flex items-center space-x-8 animate-slide-in-right">
-        <a href="/#servicios" class="text-red-700 hover:text-red-400 transition-colors hover:scale-105 transform">
-          Servicios
-        </a>
-        <a href="/#galeria" class="text-red-700 hover:text-red-400 transition-colors hover:scale-105 transform">
-          Galería
-        </a>
-        <a href="/#local" class="text-red-700 hover:text-red-400 transition-colors hover:scale-105 transform">
-          Nuestro Local
-        </a>
-        <a href="/#contacto" class="text-red-700 hover:text-red-400 transition-colors hover:scale-105 transform">
-          Contacto
-        </a>
+        {itemsnavbar.map(item => (
+          <a href={item.href} class="text-red-700 hover:text-red-400 transition-colors hover:scale-105 transform">
+            {item.label}
+          </a>
+        ))}
         <Button href='https://booksy.com/es-es/66211_the-barber-domi_barberia_49363_sabadell#ba_s=seo' class="hover:scale-105 transform transition-all">Reservar Cita</Button>
       </div>
 
@@ -36,12 +37,13 @@ import Icon from './Icon.astro';
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="md:hidden bg-white hidden rounded-b-2xl shadow-lg">
+  <div
+    id="mobile-menu" class="md:hidden bg-white hidden rounded-b-2xl shadow-lg transition-all duration-300 ease-in-out transform -translate-y-4 opacity-0"
+  >
     <div class="px-4 py-2 space-y-2">
-      <a href="/#servicios" class="block py-2 text-red-700">Servicios</a>
-      <a href="/#galeria" class="block py-2 text-red-700">Galería</a>
-      <a href="/#local" class="block py-2 text-red-700">Nuestro Local</a>
-      <a href="/#contacto" class="block py-2 text-red-700">Contacto</a>
+      {itemsnavbar.map(item => (
+        <a href={item.href} class="block py-2 text-red-700">{item.label}</a>
+      ))}
       <Button href='https://booksy.com/es-es/66211_the-barber-domi_barberia_49363_sabadell#ba_s=seo' class="w-full mt-2">Reservar Cita</Button>
     </div>
   </div>
@@ -54,7 +56,33 @@ import Icon from './Icon.astro';
   const navbar = document.getElementById('navbar');
 
   mobileMenuBtn?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
+    if (mobileMenu?.classList.contains('hidden')) {
+      mobileMenu?.classList.remove('hidden');
+      setTimeout(() => {
+        mobileMenu?.classList.remove('-translate-y-4', 'opacity-0');
+        mobileMenu?.classList.add('translate-y-0', 'opacity-100');
+      }, 10);
+    } else {
+      mobileMenu?.classList.add('-translate-y-4', 'opacity-0');
+      mobileMenu?.classList.remove('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        mobileMenu?.classList.add('hidden');
+      }, 300); // Debe coincidir con duration-300
+    }
+  });
+
+  // Cerrar menú al hacer clic en cualquier enlace del menú móvil
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileLinks = mobileMenu?.querySelectorAll('a, button');
+    mobileLinks?.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu?.classList.add('-translate-y-4', 'opacity-0');
+        mobileMenu?.classList.remove('translate-y-0', 'opacity-100');
+        setTimeout(() => {
+          mobileMenu?.classList.add('hidden');
+        }, 300);
+      });
+    });
   });
 
   // Navbar scroll effect
