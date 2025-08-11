@@ -9,6 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@stackbit/cms-git": "^1.0.35",
+    "@stackbit/types": "^2.1.14",
     "@tailwindcss/vite": "^4.1.6",
     "@vercel/analytics": "^1.5.0",
     "alpinejs": "^3.14.9",
