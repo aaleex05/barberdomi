@@ -2,6 +2,8 @@
 import fs from 'fs';
 import path from 'path';
 import Badge from './Badge.astro';
+import Button from './Button.astro';
+import Icon from './Icon.astro';
 
 const galeriaDir = path.resolve('./src/content/galeria');
 let galleryImages: Array<{ src: string; alt: string; category: string }> = [];
@@ -49,4 +51,11 @@ try {
       )}
     </div>
   </div>
+  <div class="text-center mt-12 animate-fade-in">
+      <Button href='https://www.instagram.com/thebarberdomi/' size="lg" class="hover:scale-105 transform transition-all">
+        <Icon name="instagram" class="h-5 w-5 mr-2" />
+        Ver más en Instagram
+      </Button>
+    </div>
+
 </section>
