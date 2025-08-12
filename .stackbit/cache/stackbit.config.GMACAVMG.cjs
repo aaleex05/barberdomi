@@ -67,4 +67,4 @@ var stackbit_config_default = (0, import_types.defineStackbitConfig)({
     })
   ]
 });
-//# sourceMappingURL=stackbit.config.4HRGAMWI.cjs.map
+//# sourceMappingURL=stackbit.config.GMACAVMG.cjs.map
