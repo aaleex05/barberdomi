@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../stackbit.config.ts"],
+  "sourcesContent": ["import { defineStackbitConfig } from '@stackbit/types';\r\n\r\nexport default defineStackbitConfig({\r\n    \"stackbitVersion\": \"~0.6.0\",\r\n    \"nodeVersion\": \"18\",\r\n    \"ssgName\": \"astro\",\r\n    \"contentSources\": [],\r\n    \"postInstallCommand\": \"npm i --no-save @stackbit/types\"\r\n})"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,mBAAqC;AAErC,IAAO,8BAAQ,mCAAqB;AAAA,EAChC,mBAAmB;AAAA,EACnB,eAAe;AAAA,EACf,WAAW;AAAA,EACX,kBAAkB,CAAC;AAAA,EACnB,sBAAsB;AAC1B,CAAC;",
+  "names": []
+}
