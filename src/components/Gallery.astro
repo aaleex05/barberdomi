@@ -1,55 +1,51 @@
 ---
-import Badge from './Badge.astro';
-import Button from './Button.astro';
-import Icon from './Icon.astro';
-import corte1 from '../assets/corte1.webp';
-import corte2 from '../assets/corte2.webp';
-import localExterior from '../assets/local fuera.jpeg';
-import local from '../assets/about.webp';
-import corteModerno from '../assets/corte4.webp';
-import corteModerno2 from '../assets/corte3.webp';
+import fs from 'fs';
+import path from 'path';
 
-const galleryImages = [
-  { src: corte1.src, alt: "Corte con degradado y línea marcada", category: "Cortes" },
-  { src: corte2.src, alt: "Degradado con diseño", category: "Cortes" },
-  { src: corteModerno2.src, alt: "Corte con diseño artístico", category: "Cortes" },
-  { src: corteModerno.src, alt: "Corte juvenil degradado", category: "Cortes" },
-  { src: local.src, alt: "Interior del local", category: "Local" },
-  { src: localExterior.src, alt: "Exterior del local", category: "Local" },
-];
+const galeriaDir = path.resolve('./src/content/galeria');
+let galleryImages: Array<{ src: string; alt: string; category: string }> = [];
+
+try {
+  const files = fs.readdirSync(galeriaDir);
+  galleryImages = files.map(file => {
+    const filePath = path.join(galeriaDir, file);
+    const content = fs.readFileSync(filePath, 'utf-8');
+    return JSON.parse(content);
+  });
+} catch (error) {
+  console.warn('No se pudo leer la carpeta de galería:', error);
+}
 ---
 
 <section id="galeria" class="py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16 animate-fade-in">
+    <div class="text-center mb-16">
       <h2 class="text-4xl font-bold text-red-900 mb-4">Nuestra Galería</h2>
       <p class="text-xl text-red-700 max-w-2xl mx-auto">
         Descubre nuestros trabajos y el ambiente único de The Barber Domi
       </p>
     </div>
+
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {galleryImages.map((image, index) => (
-        <div class={`group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-in hover:scale-105 transform`} style={`animation-delay: ${index * 0.1}s;`}>
-          <img
-            src={image.src}
-            alt={image.alt}
-            class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="absolute bottom-4 left-4 text-white">
-              <Badge class="mb-2 bg-red-600 text-white">{image.category}</Badge>
-              <p class="font-semibold">{image.alt}</p>
+      {galleryImages.length > 0 ? (
+        galleryImages.map((image, index) => (
+          <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <img
+              src={image.src}
+              alt={image.alt}
+              class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="absolute bottom-4 left-4 text-white">
+                <span class="mb-2 bg-red-600 text-white rounded px-2 py-1 text-sm">{image.category}</span>
+                <p class="font-semibold">{image.alt}</p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-    </div>
-
-    <div class="text-center mt-12 animate-fade-in">
-      <Button href='https://www.instagram.com/thebarberdomi/' size="lg" class="hover:scale-105 transform transition-all">
-        <Icon name="instagram" class="h-5 w-5 mr-2" />
-        Ver más en Instagram
-      </Button>
+        ))
+      ) : (
+        <p>No hay imágenes en la galería todavía.</p>
+      )}
     </div>
   </div>
 </section>

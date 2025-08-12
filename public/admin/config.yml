@@ -6,11 +6,13 @@ media_folder: "public/uploads" # donde se guardarán las imágenes
 public_folder: "/uploads"
 
 collections:
-  - name: "gallery"
+  - name: "galeria"
     label: "Galería"
-    folder: "content/gallery"
+    folder: "src/content/galeria"
     create: true
-    slug: "{{slug}}"
+    format: "json"
     fields:
-      - { label: "Título", name: "title", widget: "string" }
-      - { label: "Imagen", name: "image", widget: "image" }
+      - { label: "Imagen", name: "src", widget: "image" }
+      - { label: "Descripción", name: "alt", widget: "string" }
+      - { label: "Categoría", name: "category", widget: "select", options: ["Cortes", "Local", "Producto"] }
+
