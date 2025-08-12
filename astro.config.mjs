@@ -7,7 +7,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     server: {
-       allowedHosts: ['devserver-preview--thebarberdomi.netlify.app']
+      allowedHosts: process.env.ALLOWED_HOSTS
+        ? process.env.ALLOWED_HOSTS.split(',')
+        : []
     }
   }
 });
