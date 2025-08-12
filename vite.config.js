@@ -1,8 +1,7 @@
-import { defineConfig } from 'vite';
-
-export default defineConfig({
+export default {
   server: {
-    host: true,
-    allowedHosts: ['all']
+    allowedHosts: [
+      'devserver-preview--thebarberdomi.netlify.app'
+    ]
   }
-});
+}
