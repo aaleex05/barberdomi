@@ -1,6 +1,7 @@
 ---
 import fs from 'fs';
 import path from 'path';
+import Badge from './Badge.astro';
 
 const galeriaDir = path.resolve('./src/content/galeria');
 let galleryImages: Array<{ src: string; alt: string; category: string }> = [];
@@ -37,7 +38,7 @@ try {
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div class="absolute bottom-4 left-4 text-white">
-                <span class="mb-2 bg-red-600 text-white rounded px-2 py-1 text-sm">{image.category}</span>
+                <Badge class="mb-2 bg-red-600 text-white">{image.category}</Badge>
                 <p class="font-semibold">{image.alt}</p>
               </div>
             </div>
