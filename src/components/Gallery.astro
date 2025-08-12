@@ -31,7 +31,7 @@ const galleryImages = [
       {galleryImages.map((image, index) => (
         <div class={`group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-in hover:scale-105 transform`} style={`animation-delay: ${index * 0.1}s;`}>
           <img
-            src={image.src || "/placeholder.svg"}
+            src={image.src}
             alt={image.alt}
             class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
           />
