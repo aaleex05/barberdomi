@@ -7,25 +7,34 @@ export interface Props {
   description?: string;
 }
 
-const { title = "The Barber Domi - La mejor barbería de Sabadell" } = Astro.props;
-const { description = "La Barber Domi es la barbería más destacada de Sabadell, especializada en cortes de pelo, afeitados y cuidados masculinos. Ofrecemos un ambiente acogedor y profesional para que cada visita sea una experiencia única." } = Astro.props;
+const { title = "La Barberia Imperial - La mejor barbería de Barcelona" } =
+  Astro.props;
+const {
+  description = "La Barberia Imperial es la barbería más destacada de Barcelona, especializada en cortes de pelo, afeitados y cuidados masculinos. Ofrecemos un ambiente acogedor y profesional para que cada visita sea una experiencia única.",
+} = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <!-- SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="barbería, cortes de pelo, afeitados, barba, Sabadell, barbería profesional, peluquería masculina, cuidado personal, estilo masculino, grooming, barbería en Sabadell, cortes modernos, afeitado clásico, cuidado de barba, the barber domi, barber domi, domi barber, domi, barber" />
+    <meta
+      name="keywords"
+      content="barbería, cortes de pelo, afeitados, barba, Barcelona, barbería profesional, peluquería masculina, cuidado personal, estilo masculino, grooming, barbería en Barcelona, cortes modernos, afeitado clásico, cuidado de barba, la barberia imperial, barberia imperial, imperial barber, imperial, barber"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
-    <meta name="author" content="The Barber Domi" />
+    <meta name="author" content="La Barberia Imperial" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={`https://thebarberdomi.vercel.app${Astro.url.pathname}`}/>
+    <meta
+      property="og:url"
+      content={`https://thebarberdomi.vercel.app${Astro.url.pathname}`}
+    />
     <meta property="og:image" content="/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -36,19 +45,17 @@ const { description = "La Barber Domi es la barbería más destacada de Sabadell
       {
         "@context": "https://schema.org",
         "@type": "Barbershop",
-        "name": "The Barber Domi",
-        "image": "https://thebarberdomi.vercel.app/og-image.jpg",
+        "name": "La Barberia Imperial",
         "url": "https://thebarberdomi.vercel.app",
         "telephone": "+34 631 04 22 25",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Sabadell",
+          "addressLocality": "Barcelona",
           "addressCountry": "ES"
         },
-        "description": "La Barber Domi es la barbería más destacada de Sabadell, especializada en cortes de pelo, afeitados y cuidados masculinos."
+        "description": "La Barberia Imperial es la barbería más destacada de Barcelona, especializada en cortes de pelo, afeitados y cuidados masculinos."
       }
-    </script> 
-    <!-- <Analytics/>  --> 
+    </script>
   </head>
   <body>
     <slot />
@@ -59,7 +66,7 @@ const { description = "La Barber Domi es la barbería más destacada de Sabadell
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     font-family: system-ui, sans-serif;
     margin: 0;

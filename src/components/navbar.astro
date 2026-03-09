@@ -16,27 +16,24 @@ const itemsnavbar = [
     <div class="flex justify-between items-center h-16">
       <a href="/#" class="flex items-center space-x-2 animate-slide-in-left transition-colors hover:scale-105 transform">
         <Icon name="scissors" class="h-6 w-6 text-red-700" />
-        <span class="font-bold text-xl text-red-700 hover:text-red-400">The Barber Domi</span>
+        <span class="font-bold text-xl text-red-700 hover:text-red-400">La Barbería Imperial</span>
       </a>
 
-      <!-- Desktop Menu -->
       <div class="hidden md:flex items-center space-x-8 animate-slide-in-right">
         {itemsnavbar.map(item => (
           <a href={item.href} class="text-red-700 hover:text-red-400 transition-colors hover:scale-105 transform">
             {item.label}
           </a>
         ))}
-        <Button href='https://booksy.com/es-es/66211_the-barber-domi_barberia_49363_sabadell#ba_s=seo' class="hover:scale-105 transform transition-all">Reservar Cita</Button>
+        <Button href='https://booksy.com/es-es/' class="hover:scale-105 transform transition-all">Reservar Cita</Button>
       </div>
 
-      <!-- Mobile Menu Button -->
       <button id="mobile-menu-btn" class="md:hidden">
         <Icon name="menu" class="h-6 w-6 text-red-700" />
       </button>
     </div>
   </div>
 
-  <!-- Mobile Menu -->
   <div
     id="mobile-menu" class="md:hidden bg-white hidden rounded-b-2xl shadow-lg transition-all duration-300 ease-in-out transform -translate-y-4 opacity-0"
   >
@@ -44,13 +41,12 @@ const itemsnavbar = [
       {itemsnavbar.map(item => (
         <a href={item.href} class="block py-2 text-red-700">{item.label}</a>
       ))}
-      <Button href='https://booksy.com/es-es/66211_the-barber-domi_barberia_49363_sabadell#ba_s=seo' class="w-full mt-2">Reservar Cita</Button>
+      <Button href='https://booksy.com/es-es/' class="w-full mt-2">Reservar Cita</Button>
     </div>
   </div>
 </nav>
 
 <script>
-  // Mobile menu functionality
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const navbar = document.getElementById('navbar');
@@ -67,11 +63,10 @@ const itemsnavbar = [
       mobileMenu?.classList.remove('translate-y-0', 'opacity-100');
       setTimeout(() => {
         mobileMenu?.classList.add('hidden');
-      }, 300); // Debe coincidir con duration-300
+      }, 300);
     }
   });
 
-  // Cerrar menú al hacer clic en cualquier enlace del menú móvil
   document.addEventListener('DOMContentLoaded', () => {
     const mobileLinks = mobileMenu?.querySelectorAll('a, button');
     mobileLinks?.forEach(link => {
@@ -85,7 +80,6 @@ const itemsnavbar = [
     });
   });
 
-  // Navbar scroll effect
   window.addEventListener('scroll', () => {
     if (window.scrollY > 10) {
       navbar?.classList.add('bg-white/10', 'backdrop-blur-md', 'shadow-md');
